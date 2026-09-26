@@ -2,13 +2,15 @@
 builder = "NIXPACKS"
 # Only vite build here (not `npm run build`, which chains db:migrate) — the
 # build container has no private-network access, so postgres.railway.internal
-# can't resolve here. Migration runs as the pre-deploy step below instead.
+# can't resolve here. Migration runs at deploy start instead (see [deploy]).
 buildCommand = "npm ci && node scripts/with-app-env.mjs vite build"
 
 [deploy]
-# Runs after build, before start — with private-network + env-var access.
-preDeployCommand = "npm run db:migrate"
-startCommand = "npm run start"
+# Migration runs right before the server starts, inside the actual deploy
+# container — guaranteed private-network + env-var access (unlike build).
+# Safe to run every deploy: migrate.mjs records applied files in
+# `_migrations` and skips anything already applied.
+startCommand = "npm run db:migrate && npm run start"
 healthcheckPath = "/"
 healthcheckTimeout = 100
 restartPolicyType = "ON_FAILURE"
