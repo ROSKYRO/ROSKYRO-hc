@@ -1,0 +1,20 @@
+[build]
+builder = "NIXPACKS"
+buildCommand = "npm ci && npm run build"
+
+[deploy]
+startCommand = "npm run start"
+healthcheckPath = "/"
+healthcheckTimeout = 100
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 3
+
+# Required env vars to set in the Railway service (Variables tab):
+#   NITRO_PRESET=node-server        -> standalone Node server build (see vite.config.ts)
+#   DATABASE_URL                    -> attach Railway's Postgres plugin; it injects this
+#   BETTER_AUTH_URL                 -> https://<your-service>.up.railway.app (or custom domain)
+#   BETTER_AUTH_SECRET              -> long random string (e.g. `openssl rand -hex 32`)
+#   VITE_AUTH_ENABLED=true
+#   SMTP_HOST / SMTP_PORT / SMTP_USER / SMTP_PASS   -> for contact-form + password-reset email
+#   BLOB_READ_WRITE_TOKEN           -> optional, for real image storage (see FIXES_AND_SETUP.md)
+# See RAILWAY_DEPLOY.md for the full walkthrough.
