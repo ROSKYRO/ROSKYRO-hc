@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="ROSKYRO">
+  <defs>
+    <linearGradient id="rk" x1="6" y1="28" x2="26" y2="4" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4B2AE8"/>
+      <stop offset="0.52" stop-color="#C43B9A"/>
+      <stop offset="1" stop-color="#FF6A1A"/>
+    </linearGradient>
+  </defs>
+  <rect width="32" height="32" rx="8" fill="#F3EEE6"/>
+  <path fill="url(#rk)" fill-rule="evenodd" d="M8 26V8h8.6c4.95 0 8 2.55 8 6.35 0 2.7-1.55 4.85-4.4 5.7L25 26h-5.1l-4-6.5H12.4V26H8zm4.4-13.9v4.7h3.85c1.95 0 3.05-1.05 3.05-2.35s-1.1-2.35-3.05-2.35H12.4z"/>
+</svg>

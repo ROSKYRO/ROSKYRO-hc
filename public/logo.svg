@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="ROSKYRO">
+  <defs>
+    <linearGradient id="rk" x1="8" y1="60" x2="56" y2="8" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4B2AE8"/>
+      <stop offset="0.52" stop-color="#C43B9A"/>
+      <stop offset="1" stop-color="#FF6A1A"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="#FAF7F2"/>
+  <path d="M10 22C18 8 46 6 54 18" fill="none" stroke="url(#rk)" stroke-width="3.2" stroke-linecap="round"/>
+  <circle cx="54" cy="18" r="3.2" fill="#FF6A1A"/>
+  <path d="M16 52V18.5h15.2c7.1 0 11.4 3.9 11.4 9.5 0 4.3-2.4 7.4-6.7 8.8L44.6 52h-8.2L29.4 40.4H24.4V52H16z" fill="url(#rk)"/>
+  <circle cx="23.6" cy="30.2" r="2.3" fill="#FAF7F2"/>
+  <circle cx="34.2" cy="30.2" r="2.3" fill="#FAF7F2"/>
+</svg>
