@@ -496,9 +496,14 @@ We believe that the concierge healthcare model is the smartest way to deliver it
 
 Patients of concierge doctors wait one business day or less for an appointment, instead of the average multi-week wait, and they have the opportunity to spend up to 45 minutes per visit versus the typical 10–15 minutes. We believe that the care concierge doctors provide can reduce overall healthcare expenditures.
 
+- 90% of concierge patients are satisfied with their care.
+- 97% feel their doctors take a personal interest.
+
+*According to AARP, Physicians Practice, and Concierge Medicine Today*
+
 ## Personalized and focused on prevention
 
-Our private medical concierge services address the problems with conventional medicine, starting with providing a more-personalized, prevention-focused approach to your care. In exchange for an affordable membership fee, your doctor can provide you with multiple benefits. You'll be able to reach your concierge doctor via phone, text, or email. You'll be given plenty of time during office visits to discuss all of your health concerns and get detailed advice in return. Most importantly, you'll receive a customized wellness roadmap to help you maintain better health throughout your life.
+Our private medical concierge services address the problems with conventional medicine, starting with providing a more-personalized, prevention-focused approach to your care. In exchange for an affordable membership fee, your doctor can provide you with multiple benefits. You'll be able to reach your concierge doctor via phone, text, or email 24 hours a day. You'll be given plenty of time during office visits to discuss all of your health concerns and get detailed advice in return. Most importantly, you'll receive a customized wellness roadmap to help you maintain better health throughout your life.
 
 ## Make an investment in your health
 
@@ -506,14 +511,34 @@ Concierge medical fees are affordable and vary by doctor. They cover a wide rang
 
 - A wellness plan customized to your individual health goals
 - Appointments on the same or next business day, even for non-emergencies
-- Physician availability via phone, text, or email
+- 24/7/365 physician availability, via phone, text, or email
 - Unhurried appointments that begin on time
 - The doctor's undivided attention for 30 to 45 minutes per visit
-- Expert services like nutrition counseling and wellness guidance
+- Expert services like nutrition counseling and wellness and fitness assistance
 - Office visits for visiting friends and family
-- Periodic checkups that go beyond routine insurance-covered visits
+- Periodic checkups that aren't covered by insurance
 
-ROSKYRO practises this in Indian cities, with Indian hospitals, for families who live here and families who live elsewhere and still need someone in the room.`,
+## Member benefits
+
+**Longer visits**
+Spend more time with your doctor at his or her concierge practice
+
+**Personalized plan**
+Get a step-by-step wellness plan customized to your health goals
+
+**Follow-up**
+Get prompt answers to your urgent health questions
+
+**Proactive vs. reactive**
+Concierge medicine assists in preventing health issues, rather than treating them after the fact
+
+## Don't take our word for it. Take theirs.
+
+ROSKYRO practises this in Indian cities, with Indian hospitals, for families who live here and families who live elsewhere and still need someone in the room.
+
+## Find your concierge doctor
+
+To see whether your current doctor offers ROSKYRO concierge services, or to find a concierge doctor near you, get in touch with us.`,,
     },
     {
       slug: "what-is-concierge-medicine",
