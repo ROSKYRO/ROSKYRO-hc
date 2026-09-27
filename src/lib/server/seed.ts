@@ -485,18 +485,33 @@ Weeks five to twelve are the strange quiet of a calendar with empty space. Use i
       slug: "about-concierge-care",
       title: "About concierge care",
       image: "/images/hero.jpg",
-      meta: "What concierge medicine means at ROSKYRO: a small panel, direct access, and a physician who has time.",
-      body: `Concierge medicine is a simple trade. You pay a membership. Your physician keeps a small panel and gives you time, access, and continuity that a volume clinic cannot.
+      meta: "About concierge healthcare at ROSKYRO: personalized, prevention-focused care with same-day access and unhurried visits in India.",
+      body: `Your health shouldn't suffer because of a broken system
 
-It is not a VIP queue at the same factory. The factory is the problem.
+India spends significant resources on healthcare, yet many patients still face long waits, rushed consultations, and fragmented care. Outcomes suffer when physicians are forced to see too many people in too little time.
 
-## What you are actually buying
+## You deserve a more effective healthcare solution
 
-- A named physician, not a rota
-- Same-day visits when you are unwell
-- A number that answers
-- Hospital presence when you are admitted
-- A chart that is allowed to be long
+We believe that the concierge healthcare model is the smartest way to deliver it. Concierge medicine is based on the principle that an upfront investment in your wellness should translate into a reduction in severe healthcare occurrences.
+
+Patients of concierge doctors wait one business day or less for an appointment, instead of the average multi-week wait, and they have the opportunity to spend up to 45 minutes per visit versus the typical 10–15 minutes. We believe that the care concierge doctors provide can reduce overall healthcare expenditures.
+
+## Personalized and focused on prevention
+
+Our private medical concierge services address the problems with conventional medicine, starting with providing a more-personalized, prevention-focused approach to your care. In exchange for an affordable membership fee, your doctor can provide you with multiple benefits. You'll be able to reach your concierge doctor via phone, text, or email. You'll be given plenty of time during office visits to discuss all of your health concerns and get detailed advice in return. Most importantly, you'll receive a customized wellness roadmap to help you maintain better health throughout your life.
+
+## Make an investment in your health
+
+Concierge medical fees are affordable and vary by doctor. They cover a wide range of additional services you receive over and above what you'd expect from a doctor operating in a traditional healthcare setting. For example, members of the ROSKYRO concierge medicine program gain benefits, including:
+
+- A wellness plan customized to your individual health goals
+- Appointments on the same or next business day, even for non-emergencies
+- Physician availability via phone, text, or email
+- Unhurried appointments that begin on time
+- The doctor's undivided attention for 30 to 45 minutes per visit
+- Expert services like nutrition counseling and wellness guidance
+- Office visits for visiting friends and family
+- Periodic checkups that go beyond routine insurance-covered visits
 
 ROSKYRO practises this in Indian cities, with Indian hospitals, for families who live here and families who live elsewhere and still need someone in the room.`,
     },
