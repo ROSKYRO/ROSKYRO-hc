@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { getDashboard } from "@/lib/server/admin";
+import { formatDateTime } from "@/lib/utils";
 
 export const Route = createFileRoute("/admin/")({ component: Dashboard });
 
@@ -37,7 +38,7 @@ function Dashboard() {
         {data.recent.map((r) => (
           <li key={r.id} className="px-4 py-3 text-sm">
             <span className="font-medium">{r.action}</span> {r.entity_type} {r.detail}
-            <span className="ml-2 text-xs text-muted">{r.created_at}</span>
+            <span className="ml-2 text-xs text-muted">{formatDateTime(r.created_at)}</span>
           </li>
         ))}
       </ul>
