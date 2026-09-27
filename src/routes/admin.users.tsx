@@ -64,24 +64,35 @@ function Page() {
         {rows.map((u) => (
           <li key={u.id} className="flex items-center justify-between px-4 py-3">
             <div>
-              <p className="font-medium">{u.name}</p>
+              <p className="font-medium">
+                {u.name}
+                {u.role === "super_admin" ? (
+                  <span className="ml-2 rounded-full bg-ink/10 px-2 py-0.5 text-[10px] font-medium uppercase tracking-wide text-ink">
+                    protected
+                  </span>
+                ) : null}
+              </p>
               <p className="text-xs text-muted">
                 {u.email} · {u.role} · {u.active ? "active" : "inactive"}
               </p>
             </div>
-            <Button
-              type="button"
-              size="sm"
-              variant="outline"
-              onClick={async () => {
-                await saveStaff({
-                  data: { id: u.id, name: u.name, email: u.email, role: u.role, active: !u.active },
-                });
-                await reload();
-              }}
-            >
-              {u.active ? "Deactivate" : "Activate"}
-            </Button>
+            {u.role === "super_admin" ? (
+              <span className="text-xs text-muted">Cannot edit or deactivate</span>
+            ) : (
+              <Button
+                type="button"
+                size="sm"
+                variant="outline"
+                onClick={async () => {
+                  await saveStaff({
+                    data: { id: u.id, name: u.name, email: u.email, role: u.role, active: !u.active },
+                  });
+                  await reload();
+                }}
+              >
+                {u.active ? "Deactivate" : "Activate"}
+              </Button>
+            )}
           </li>
         ))}
       </ul>
