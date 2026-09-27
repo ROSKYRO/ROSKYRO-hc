@@ -427,8 +427,37 @@ export const saveStaff = createServerFn({ method: "POST" })
     const me = await requireStaff(context.userId, ["super_admin"]);
     const sql = await getSql();
     if (data.id) {
+      const existing = await sql<Staff>`
+        select * from admin_staff where id = ${data.id} limit 1
+      `;
+      const target = existing[0];
+      if (!target) throw new ForbiddenError();
+
+      // Super admin accounts are locked: no role change, no deactivation, no delete/edit by others.
+      if (target.role === "super_admin") {
+        if (data.role !== "super_admin") {
+          throw new ForbiddenError();
+        }
+        if (data.active === false) {
+          throw new ForbiddenError();
+        }
+        // Only the same super_admin may update their own name/email; never role or active.
+        if (me.id !== target.id) {
+          throw new ForbiddenError();
+        }
+        await sql.query(
+          `update admin_staff set name=$2, email=$3, updated_at=now() where id=$1 and role='super_admin'`,
+          [data.id, data.name, data.email.toLowerCase()],
+        );
+        await logActivity(me, "update", "users", data.id, "self profile only");
+        return { ok: true, id: data.id };
+      }
+
+      // Cannot promote/demote in a way that creates a second path to demote super_admin — already handled.
+      // Non-super targets: normal update, but never allow setting role to super_admin from this path
+      // unless the actor is super_admin (already required). Still allow creating other super_admins via insert.
       await sql.query(
-        `update admin_staff set name=$2, email=$3, role=$4, active=$5, updated_at=now() where id=$1`,
+        `update admin_staff set name=$2, email=$3, role=$4, active=$5, updated_at=now() where id=$1 and role <> 'super_admin'`,
         [data.id, data.name, data.email.toLowerCase(), data.role, data.active],
       );
       await logActivity(me, "update", "users", data.id);
