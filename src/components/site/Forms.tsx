@@ -170,11 +170,15 @@ export function LeadForm({
   title,
   intro,
   extra,
+  messageLabel = "Message",
+  messageRequired = true,
 }: {
   type: LeadType;
   title: string;
   intro: string;
   extra?: { name: string; label: string; required?: boolean; textarea?: boolean }[];
+  messageLabel?: string;
+  messageRequired?: boolean;
 }) {
   const [pending, setPending] = useState(false);
   const [message, setMessage] = useState<Notice | null>(null);
@@ -248,8 +252,8 @@ export function LeadForm({
           )}
         </Field>
       ))}
-      <Field label="Message" htmlFor="lead-message">
-        <Textarea id="lead-message" name="message" rows={5} required />
+      <Field label={messageLabel} htmlFor="lead-message">
+        <Textarea id="lead-message" name="message" rows={5} required={messageRequired} />
       </Field>
       {message ? <Status message={message.text} tone={message.tone} /> : null}
       <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap">
