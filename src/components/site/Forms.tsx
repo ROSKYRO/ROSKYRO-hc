@@ -172,13 +172,22 @@ export function LeadForm({
   extra,
   messageLabel = "Message",
   messageRequired = true,
+  fixedPayload,
 }: {
   type: LeadType;
   title: string;
   intro: string;
-  extra?: { name: string; label: string; required?: boolean; textarea?: boolean }[];
+  extra?: {
+    name: string;
+    label: string;
+    required?: boolean;
+    textarea?: boolean;
+    options?: string[];
+  }[];
   messageLabel?: string;
   messageRequired?: boolean;
+  /** Extra key/value pairs sent with every submission (e.g. { topic: "Billing" }). */
+  fixedPayload?: Record<string, string>;
 }) {
   const [pending, setPending] = useState(false);
   const [message, setMessage] = useState<Notice | null>(null);
@@ -187,7 +196,7 @@ export function LeadForm({
     e.preventDefault();
     const form = e.currentTarget;
     const fd = new FormData(form);
-    const payload: Record<string, string> = {};
+    const payload: Record<string, string> = { ...(fixedPayload ?? {}) };
     for (const field of extra ?? []) {
       payload[field.name] = String(fd.get(field.name) ?? "");
     }
@@ -245,7 +254,24 @@ export function LeadForm({
       </Field>
       {(extra ?? []).map((field) => (
         <Field key={field.name} label={field.label} htmlFor={`lead-${field.name}`}>
-          {field.textarea ? (
+          {field.options ? (
+            <select
+              id={`lead-${field.name}`}
+              name={field.name}
+              required={field.required}
+              defaultValue=""
+              className="h-11 w-full rounded-[10px] border border-line bg-paper px-3.5 text-base"
+            >
+              <option value="" disabled>
+                Select…
+              </option>
+              {field.options.map((o) => (
+                <option key={o} value={o}>
+                  {o}
+                </option>
+              ))}
+            </select>
+          ) : field.textarea ? (
             <Textarea id={`lead-${field.name}`} name={field.name} required={field.required} />
           ) : (
             <Input id={`lead-${field.name}`} name={field.name} required={field.required} />
