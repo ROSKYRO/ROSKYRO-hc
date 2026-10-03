@@ -7,6 +7,7 @@ const staticLinks: { to: string; label: string }[] = [
   { to: "/find-a-doctor", label: "Find a doctor" },
   { to: "/about-concierge-care", label: "About concierge care" },
   { to: "/member-benefits", label: "Member benefits" },
+  { to: "/360-care", label: "360° care" },
   { to: "/our-doctors", label: "Our doctors" },
   { to: "/testimonials", label: "Testimonials" },
   { to: "/blog", label: "Member blog" },

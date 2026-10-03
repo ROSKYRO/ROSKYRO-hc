@@ -7,6 +7,7 @@ const staticPaths = [
   "/find-a-doctor",
   "/about-concierge-care",
   "/member-benefits",
+  "/360-care",
   "/our-doctors",
   "/testimonials",
   "/blog",
