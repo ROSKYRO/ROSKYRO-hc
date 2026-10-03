@@ -16,8 +16,11 @@ function inline(src: string) {
     .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
     .replace(/\*(.+?)\*/g, "<em>$1</em>")
     .replace(
-      /\[([^\]]+)\]\((https?:[^)]+)\)/g,
-      '<a href="$2" rel="noopener noreferrer">$1</a>',
+      /\[([^\]]+)\]\(((?:https?:|mailto:|\/)[^)\s]+)\)/g,
+      (_m, text: string, url: string) =>
+        url.startsWith("http")
+          ? `<a href="${url}" rel="noopener noreferrer">${text}</a>`
+          : `<a href="${url}">${text}</a>`,
     );
 }
 

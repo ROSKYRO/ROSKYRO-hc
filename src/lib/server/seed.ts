@@ -501,6 +501,77 @@ It is not a VIP queue at the same factory. The factory is the problem.
 ROSKYRO practises this in Indian cities, with Indian hospitals, for families who live here and families who live elsewhere and still need someone in the room.`,
     },
     {
+      slug: "360-care",
+      title: '360° care',
+      image: "/images/care.jpg",
+      meta: "ROSKYRO's 360° care covers your whole treatment journey: appointments, tests, specialists, ambulance coordination, hospital support and long-term follow-up.",
+      body: `360° care means one team stays responsible for you from the first request to recovery and beyond. Most healthcare in India is a set of separate encounters: a clinic here, a lab there, a hospital somewhere else, and you in the middle carrying the file. At ROSKYRO your personal physician and a care coordinator hold the whole journey, so you do not have to.
+
+It covers appointments, treatment, tests, specialists, medicines, emergencies and ambulance coordination, hospital admission, follow-up and the long relationship that sits behind all of it.
+
+## Who does what
+
+- **Your personal physician** makes the clinical decisions. They examine you, diagnose, treat, decide which tests and specialists you need, and own your health plan.
+- **Your care coordinator** handles the logistics: appointments, records, test bookings, transport, admission paperwork and the file that has to be there before you are.
+- **The ROSKYRO practice** runs memberships, keeps your records safe and makes sure someone always picks up.
+- **You** tell us what is happening and make the final decisions. Nothing happens without your agreement.
+
+## Stage 1: Appointment and access
+
+Write to us before noon and you are seen the same day. You can ask through the [find a doctor](/find-a-doctor) form, by phone or on WhatsApp. We save your request, then open WhatsApp to the clinic with the note already written, so you do not have to explain twice. Evening slots exist for people who work, and visits can be in person or by video when you are travelling.
+
+## Stage 2: The first conversation and your plan
+
+The first visit is long. Your physician takes your full history, reviews old reports, orders the right labs and then gives you a written plan you can actually keep. Your coordinator collects records from earlier doctors and hospitals, so the story starts complete.
+
+## Stage 3: Consultation and treatment
+
+Your physician treats what they can treat: fever, injury, infections, and long-term conditions such as diabetes, blood pressure, thyroid and heart disease. Every medicine and supplement is checked against the others, which is quiet work that prevents harm. Where it helps, we bring in a dietitian ROSKYRO trusts. You deal with one doctor who remembers you, not a new face at each visit.
+
+## Stage 4: Tests and diagnostics coordination
+
+Your physician decides which tests you need, and just as importantly which ones you do not. Your coordinator then arranges the booking, makes sure the laboratory or scan centre has the right request, and sends records ahead. Your physician reads the results before you have to ask, and explains them in plain language. A scan that does not sit right gets a second look. A scan you do not need does not get ordered.
+
+## Stage 5: Specialists and second opinions
+
+When you need a specialist, your physician chooses one for your problem, hands over your history and stays in the loop. After the consultation, the findings come back to your physician, who explains what they mean and how they fit with the rest of your care. Before any surgery, you can ask for a second opinion from another doctor you trust. You keep your own specialists if you already have them. We coordinate them.
+
+## Stage 6: Emergencies and ambulance coordination
+
+Your physician's number answers at night and while you travel. If you are unwell and unsure, call us first. If it is a life-threatening emergency, call 112 or go to the nearest hospital straight away, and call us on the way.
+
+We help coordinate the ambulance, advise on which hospital is the right one for the problem, tell the receiving team what they need to know and stay on the phone with your family. For a child's emergency, the nearest children's hospital comes first, with us on the call. ROSKYRO is not an emergency ambulance service, but we make sure you are not working it out alone.
+
+## Stage 7: Hospital admission and advocacy
+
+If you are admitted, your coordinator handles the paperwork and makes sure your records and medicine list reach the hospital before you do. Your physician is in the room with your notes and with your family. They speak to the treating team, ask the questions you would not think to ask and explain decisions in language everyone understands. Keep your health insurance for the admission itself. Our job is to make sure you are not facing it as a stranger.
+
+## Stage 8: Discharge, recovery and follow-up
+
+Leaving hospital is a risky moment. Your physician reviews the discharge summary, reconciles your medicines again, arranges follow-up tests and visits, and checks in on how you are recovering. If you need physiotherapy, nursing or other recovery support, we help you find the right people and coordinate with them.
+
+## Stage 9: The relationship, year after year
+
+Everything above goes into one chart that is allowed to be long: medicines, allergies, what you tried, what you will not do again. Each year your physician reviews it with you and updates your written plan. The relationship runs through:
+
+- **Your whole household.** Parents, children and the relative who never books an appointment, in one coordinated record under a household membership.
+- **Care that travels.** Video visits from a hotel, records that follow you to another city or country.
+- **Family abroad.** If your parents live in India and you do not, we keep you informed with their consent, and we are the adult in the room when you cannot be.
+- **Privacy.** We share your information with family only as you allow, and never sell it. See our [privacy policy](/privacy).
+
+## What 360° care is not
+
+It is not health insurance. Hospital, laboratory, scan, ambulance and specialist charges are billed by those providers and are separate from your membership, which pays for your physician's time and our coordination. It is also not a replacement for emergency services or for hospital care. It is the thing that makes both work better.
+
+## How is this different from a normal clinic?
+
+A normal clinic treats the visit. We look after the person across the year: the booking, the tests, the specialist, the night call, the admission and the follow-up. One physician, one coordinator and one record stay with you throughout.
+
+## Start with a conversation
+
+[Find a doctor](/find-a-doctor) in your city, look at [member programs](/member-programs), read the [member FAQ](/member-faq) or learn more [about concierge care](/about-concierge-care). If you would rather talk first, [contact us](/contact).`,
+    },
+    {
       slug: "what-is-concierge-medicine",
       title: "What is concierge medicine?",
       image: "/images/care.jpg",
