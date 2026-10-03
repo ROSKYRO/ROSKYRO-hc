@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { SiteShell } from "@/components/site/SiteHeader";
 import { DoctorCard } from "@/components/site/Cards";
@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input, Label } from "@/components/ui/input";
 import { getDoctors, getDoctorsNearby, getPublicSettings } from "@/lib/server/public";
 import type { Doctor } from "@/lib/types";
+import { citySlug } from "@/lib/city";
 
 export const Route = createFileRoute("/find-a-doctor")({
   loader: async () => {
@@ -148,6 +149,27 @@ function FindDoctor() {
         {list.length === 0 ? (
           <p className="mt-10 text-muted">No physicians match those filters.</p>
         ) : null}
+
+        <section className="mt-16">
+          <h2 className="font-display text-2xl">Browse by city</h2>
+          <ul className="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+            {cities.map((c) => {
+              const n = initial.filter((d) => d.city === c).length;
+              return (
+                <li key={c}>
+                  <Link
+                    to="/doctors-in/$city"
+                    params={{ city: citySlug(c) }}
+                    className="flex min-h-11 items-center justify-between rounded-[16px] border border-line bg-paper px-4 text-sm hover:bg-canvas"
+                  >
+                    <span>Concierge doctors in {c}</span>
+                    <span className="text-muted">{n}</span>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
 
         <div className="mt-16 max-w-xl">
           <AppointmentForm />
