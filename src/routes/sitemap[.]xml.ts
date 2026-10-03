@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { getSitemapPayload } from "@/lib/server/public";
+import { getDoctors, getSitemapPayload } from "@/lib/server/public";
+import { citySlug } from "@/lib/city";
 
 const staticPaths = [
   "/",
@@ -38,8 +39,11 @@ export const Route = createFileRoute("/sitemap.xml")({
       GET: async ({ request }) => {
         const origin = new URL(request.url).origin;
         const extra = await getSitemapPayload();
+        const allDoctors = await getDoctors({ data: {} });
+        const citySlugs = [...new Set(allDoctors.map((d) => citySlug(d.city)))];
         const urls = [
           ...staticPaths,
+          ...citySlugs.map((c) => `/doctors-in/${c}`),
           ...extra.doctors.map((d) => `/doctors/${d.slug}`),
           ...extra.posts.map((p) => `/blog/${p.slug}`),
         ];
