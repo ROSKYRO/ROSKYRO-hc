@@ -201,7 +201,7 @@ export function SiteFooter({ settings }: { settings: SiteSettings }) {
             <li><Link to="/privacy" className="hover:underline">Privacy policy</Link></li>
             <li><Link to="/terms" className="hover:underline">Terms of use</Link></li>
             <li><Link to="/non-discrimination" className="hover:underline">Non-discrimination</Link></li>
-            <li><Link to="/do-not-sell" className="hover:underline">Do not sell request</Link></li>
+            <li><Link to="/do-not-sell" className="hover:underline">Data and consent request</Link></li>
             <li><Link to="/sitemap" className="hover:underline">Site map</Link></li>
             <li><Link to="/login" className="hover:underline">Staff</Link></li>
           </ul>
