@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutConciergeCareRouteImport } from './routes/about-concierge-care'
+import { Route as Char360CareRouteImport } from './routes/360-care'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as AffiliateBenefitsRouteImport } from './routes/affiliate-benefits'
 import { Route as BecomeAnAffiliateRouteImport } from './routes/become-an-affiliate'
@@ -71,6 +72,11 @@ const IndexRoute = IndexRouteImport.update({
 const AboutConciergeCareRoute = AboutConciergeCareRouteImport.update({
   id: '/about-concierge-care',
   path: '/about-concierge-care',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Char360CareRoute = Char360CareRouteImport.update({
+  id: '/360-care',
+  path: '/360-care',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AdminRoute = AdminRouteImport.update({
@@ -332,6 +338,7 @@ const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about-concierge-care': typeof AboutConciergeCareRoute
+  '/360-care': typeof Char360CareRoute
   '/admin': typeof AdminRouteWithChildren
   '/affiliate-benefits': typeof AffiliateBenefitsRoute
   '/become-an-affiliate': typeof BecomeAnAffiliateRoute
@@ -387,6 +394,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about-concierge-care': typeof AboutConciergeCareRoute
+  '/360-care': typeof Char360CareRoute
   '/affiliate-benefits': typeof AffiliateBenefitsRoute
   '/become-an-affiliate': typeof BecomeAnAffiliateRoute
   '/blog': typeof BlogRouteWithChildren
@@ -442,6 +450,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about-concierge-care': typeof AboutConciergeCareRoute
+  '/360-care': typeof Char360CareRoute
   '/admin': typeof AdminRouteWithChildren
   '/affiliate-benefits': typeof AffiliateBenefitsRoute
   '/become-an-affiliate': typeof BecomeAnAffiliateRoute
@@ -499,6 +508,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about-concierge-care'
+    | '/360-care'
     | '/admin'
     | '/affiliate-benefits'
     | '/become-an-affiliate'
@@ -554,6 +564,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about-concierge-care'
+    | '/360-care'
     | '/affiliate-benefits'
     | '/become-an-affiliate'
     | '/blog'
@@ -608,6 +619,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about-concierge-care'
+    | '/360-care'
     | '/admin'
     | '/affiliate-benefits'
     | '/become-an-affiliate'
@@ -664,6 +676,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutConciergeCareRoute: typeof AboutConciergeCareRoute
+  Char360CareRoute: typeof Char360CareRoute
   AdminRoute: typeof AdminRouteWithChildren
   AffiliateBenefitsRoute: typeof AffiliateBenefitsRoute
   BecomeAnAffiliateRoute: typeof BecomeAnAffiliateRoute
@@ -714,6 +727,13 @@ declare module '@tanstack/react-router' {
       path: '/about-concierge-care'
       fullPath: '/about-concierge-care'
       preLoaderRoute: typeof AboutConciergeCareRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/360-care': {
+      id: '/360-care'
+      path: '/360-care'
+      fullPath: '/360-care'
+      preLoaderRoute: typeof Char360CareRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/admin': {
@@ -1129,6 +1149,7 @@ const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutConciergeCareRoute: AboutConciergeCareRoute,
+  Char360CareRoute: Char360CareRoute,
   AdminRoute: AdminRouteWithChildren,
   AffiliateBenefitsRoute: AffiliateBenefitsRoute,
   BecomeAnAffiliateRoute: BecomeAnAffiliateRoute,
