@@ -58,6 +58,7 @@ import { Route as AdminTestimonialsRouteImport } from './routes/admin.testimonia
 import { Route as AdminUsersRouteImport } from './routes/admin.users'
 import { Route as AdminVideosRouteImport } from './routes/admin.videos'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
+import { Route as DoctorsInCityRouteImport } from './routes/doctors-in.$city'
 import { Route as DoctorsSlugRouteImport } from './routes/doctors.$slug'
 import { Route as ForDoctorsBlogRouteImport } from './routes/for-doctors.blog'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth.$'
@@ -307,6 +308,11 @@ const BlogSlugRoute = BlogSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => BlogRoute,
 } as any)
+const DoctorsInCityRoute = DoctorsInCityRouteImport.update({
+  id: '/doctors-in/$city',
+  path: '/doctors-in/$city',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DoctorsSlugRoute = DoctorsSlugRouteImport.update({
   id: '/doctors/$slug',
   path: '/doctors/$slug',
@@ -372,6 +378,7 @@ export interface FileRoutesByFullPath {
   '/admin/users': typeof AdminUsersRoute
   '/admin/videos': typeof AdminVideosRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/doctors-in/$city': typeof DoctorsInCityRoute
   '/doctors/$slug': typeof DoctorsSlugRoute
   '/for-doctors/blog': typeof ForDoctorsBlogRoute
   '/admin/': typeof AdminIndexRoute
@@ -425,6 +432,7 @@ export interface FileRoutesByTo {
   '/admin/users': typeof AdminUsersRoute
   '/admin/videos': typeof AdminVideosRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/doctors-in/$city': typeof DoctorsInCityRoute
   '/doctors/$slug': typeof DoctorsSlugRoute
   '/for-doctors/blog': typeof ForDoctorsBlogRoute
   '/admin': typeof AdminIndexRoute
@@ -480,6 +488,7 @@ export interface FileRoutesById {
   '/admin/users': typeof AdminUsersRoute
   '/admin/videos': typeof AdminVideosRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/doctors-in/$city': typeof DoctorsInCityRoute
   '/doctors/$slug': typeof DoctorsSlugRoute
   '/for-doctors/blog': typeof ForDoctorsBlogRoute
   '/admin/': typeof AdminIndexRoute
@@ -536,6 +545,7 @@ export interface FileRouteTypes {
     | '/admin/users'
     | '/admin/videos'
     | '/blog/$slug'
+    | '/doctors-in/$city'
     | '/doctors/$slug'
     | '/for-doctors/blog'
     | '/admin/'
@@ -589,6 +599,7 @@ export interface FileRouteTypes {
     | '/admin/users'
     | '/admin/videos'
     | '/blog/$slug'
+    | '/doctors-in/$city'
     | '/doctors/$slug'
     | '/for-doctors/blog'
     | '/admin'
@@ -643,6 +654,7 @@ export interface FileRouteTypes {
     | '/admin/users'
     | '/admin/videos'
     | '/blog/$slug'
+    | '/doctors-in/$city'
     | '/doctors/$slug'
     | '/for-doctors/blog'
     | '/admin/'
@@ -682,6 +694,7 @@ export interface RootRouteChildren {
   VideoLibraryRoute: typeof VideoLibraryRoute
   WhatIsConciergeMedicineRoute: typeof WhatIsConciergeMedicineRoute
   WhyConciergeMedicineRoute: typeof WhyConciergeMedicineRoute
+  DoctorsInCityRoute: typeof DoctorsInCityRoute
   DoctorsSlugRoute: typeof DoctorsSlugRoute
   ForDoctorsBlogRoute: typeof ForDoctorsBlogRoute
   ApiAuthSplatRoute: typeof ApiAuthSplatRoute
@@ -1032,6 +1045,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogSlugRouteImport
       parentRoute: typeof BlogRoute
     }
+    '/doctors-in/$city': {
+      id: '/doctors-in/$city'
+      path: '/doctors-in/$city'
+      fullPath: '/doctors-in/$city'
+      preLoaderRoute: typeof DoctorsInCityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/doctors/$slug': {
       id: '/doctors/$slug'
       path: '/doctors/$slug'
@@ -1139,6 +1159,7 @@ const rootRouteChildren: RootRouteChildren = {
   VideoLibraryRoute: VideoLibraryRoute,
   WhatIsConciergeMedicineRoute: WhatIsConciergeMedicineRoute,
   WhyConciergeMedicineRoute: WhyConciergeMedicineRoute,
+  DoctorsInCityRoute: DoctorsInCityRoute,
   DoctorsSlugRoute: DoctorsSlugRoute,
   ForDoctorsBlogRoute: ForDoctorsBlogRoute,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
