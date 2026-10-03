@@ -29,7 +29,7 @@ const staticLinks: { to: string; label: string }[] = [
   { to: "/privacy", label: "Privacy" },
   { to: "/terms", label: "Terms" },
   { to: "/non-discrimination", label: "Non-discrimination" },
-  { to: "/do-not-sell", label: "Do not sell" },
+  { to: "/do-not-sell", label: "Data and consent request" },
 ];
 
 export const Route = createFileRoute("/sitemap")({
