@@ -104,7 +104,7 @@ export function SiteHeader({ settings }: { settings: SiteSettings }) {
 
         <div className="flex items-center gap-2">
           <Button asChild size="sm" className="hidden sm:inline-flex">
-            <Link to="/find-a-doctor">Request a visit</Link>
+            <Link to="/find-a-doctor">Find a concierge doctor</Link>
           </Button>
           <button
             type="button"
