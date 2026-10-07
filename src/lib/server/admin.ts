@@ -102,13 +102,16 @@ export const getDashboard = createServerFn({ method: "GET" })
   .handler(async ({ context }) => {
     await requireStaff(context.userId);
     const sql = await getSql();
-    const [appts, leads, doctors, posts, unreadA, unreadL] = await Promise.all([
+    const [appts, leads, doctors, posts, unreadA, unreadL, openA, openL] = await Promise.all([
       sql<{ n: number }>`select count(*)::int as n from appointments`,
       sql<{ n: number }>`select count(*)::int as n from leads`,
       sql<{ n: number }>`select count(*)::int as n from doctors`,
       sql<{ n: number }>`select count(*)::int as n from blog_posts`,
       sql<{ n: number }>`select count(*)::int as n from appointments where status = 'new'`,
       sql<{ n: number }>`select count(*)::int as n from leads where status = 'new'`,
+      // "Open" = still needs work. completed / cancelled drop out of the dashboard count.
+      sql<{ n: number }>`select count(*)::int as n from appointments where status in ('new','contacted','confirmed')`,
+      sql<{ n: number }>`select count(*)::int as n from leads where status in ('new','contacted','confirmed')`,
     ]);
     const recent = await sql<{ id: string; action: string; entity_type: string; detail: string; created_at: string }>`
       select id, action, entity_type, detail, created_at from activity_log order by created_at desc limit 8
@@ -116,6 +119,8 @@ export const getDashboard = createServerFn({ method: "GET" })
     return {
       appointments: appts[0]?.n ?? 0,
       leads: leads[0]?.n ?? 0,
+      appointmentsOpen: openA[0]?.n ?? 0,
+      leadsOpen: openL[0]?.n ?? 0,
       doctors: doctors[0]?.n ?? 0,
       posts: posts[0]?.n ?? 0,
       unread: (unreadA[0]?.n ?? 0) + (unreadL[0]?.n ?? 0),
