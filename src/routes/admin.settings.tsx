@@ -43,10 +43,15 @@ function Page() {
       className="max-w-2xl space-y-4"
       onSubmit={async (e) => {
         e.preventDefault();
-        await saveAdminSettings({
-          data: row as unknown as Record<string, string | number | boolean | null>,
-        });
-        setMsg("Saved. Public pages update on the next load.");
+        setMsg(null);
+        try {
+          await saveAdminSettings({
+            data: row as unknown as Record<string, string | number | boolean | null>,
+          });
+          setMsg("Saved. Public pages update on the next load.");
+        } catch (err) {
+          setMsg(`Save failed: ${err instanceof Error ? err.message : "unknown error"}`);
+        }
       }}
     >
       <h1 className="font-display text-3xl">Site settings</h1>
