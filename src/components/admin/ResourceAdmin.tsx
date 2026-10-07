@@ -57,14 +57,23 @@ export function ResourceAdmin({
     if (!editing) return;
     setError(null);
     try {
-      const { id, ...rest } = editing;
-      await adminSave({
+      const { id } = editing;
+      // Send ONLY the fields this form edits. Rows loaded from Postgres also carry
+      // created_at / updated_at / published_at as Date objects, which the server
+      // validator rejects — that made every Blog and Testimonial save fail.
+      const rest: Record<string, string | number | boolean | null> = {};
+      for (const f of fields) rest[f.key] = editing[f.key] ?? "";
+      const result = await adminSave({
         data: {
           table,
           id: typeof id === "string" ? id : undefined,
           row: rest,
         },
       });
+      if (result && result.ok === false) {
+        setError(result.error);
+        return;
+      }
       setEditing(null);
       await reload();
     } catch (err) {
