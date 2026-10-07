@@ -602,7 +602,9 @@ export const adminSave = createServerFn({ method: "POST" })
         "steps",
       ]),
       id: z.string().optional(),
-      row: z.record(z.string(), z.union([z.string(), z.number(), z.boolean(), z.null()])),
+      // Accept anything here and sanitize below: Postgres timestamps arrive as Date
+      // objects and a strict primitive-only union rejected the whole save.
+      row: z.record(z.string(), z.unknown()),
     }),
   )
   .handler(async ({ context, data }) => {
@@ -610,12 +612,29 @@ export const adminSave = createServerFn({ method: "POST" })
     const sql = await getSql();
     const table = data.table as TableName;
     const allowed = new Set(TABLE_COLUMNS[table]);
-    const row = { ...data.row };
+    const row: Record<string, string | number | boolean | null> = {};
+    for (const [k, v] of Object.entries(data.row)) {
+      if (v instanceof Date) row[k] = v.toISOString();
+      else if (v === null || typeof v === "string" || typeof v === "number" || typeof v === "boolean") {
+        row[k] = v;
+      }
+    }
     if (table === "blog_posts" && typeof row.title === "string" && !row.slug) {
       row.slug = slugify(row.title);
     }
-    if (table === "blog_posts" && row.status === "published" && !row.published_at) {
-      row.published_at = new Date().toISOString();
+    if (table === "blog_posts") {
+      row.updated_at = new Date().toISOString();
+      if (row.status === "published") {
+        // Keep the original publish date on re-save; stamp it only the first time.
+        let existing: Date | string | null = null;
+        if (data.id) {
+          const prev = await sql<{ published_at: Date | string | null }>`
+            select published_at from blog_posts where id = ${data.id}`;
+          existing = prev[0]?.published_at ?? null;
+        }
+        if (existing) delete row.published_at;
+        else row.published_at = new Date().toISOString();
+      }
     }
     const keys = Object.keys(row).filter((k) => allowed.has(k));
     if (!keys.length) return { ok: false as const, error: "No valid fields" };
