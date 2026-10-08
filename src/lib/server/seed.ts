@@ -28,8 +28,8 @@ async function seedInner() {
     [
       "ROSKYRO",
       "Healthcare concierge",
-      "A physician who has time for you.",
-      "Membership medicine for families who are done with twelve-minute appointments and unanswered nights. One doctor. Direct access. Care that remembers your name.",
+      "Your family doctor, on subscription.",
+      "A doctor who knows you, answers your call and stands with you in hospital. From ₹115 a day.",
       "https://www.youtube.com/watch?v=LXb3EKWsInQ",
       "/images/hero.jpg",
       "/logo.png",
